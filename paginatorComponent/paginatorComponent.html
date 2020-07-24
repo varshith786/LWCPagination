@@ -1,0 +1,18 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="first" style="margin:5px;" onclick={firstHandler}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Previous" style="margin:5px;" disabled={previousDisabled} onclick={previousHandler}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+
+        <lightning-layout-item>
+            <lightning-button label="Next" style="margin:5px;"  disabled={nextDisabled} onclick={nextHandler}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Last" style="margin:5px;" onclick={lastHandler}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
