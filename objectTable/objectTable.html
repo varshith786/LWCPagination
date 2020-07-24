@@ -2,22 +2,12 @@
     <table class="slds-table slds-table_cell-buffer slds-table_bordered">
         <thead>
           <tr class="slds-line-height_reset">
-            <th class="" scope="col">
-              <div class="slds-truncate" title="Account Name">Account Name</div>
-            </th>
-            <th class="" scope="col">
-              <div class="slds-truncate" title="NumberOfEmployees">NumberOfEmployees</div>
-            </th>
-            <th class="" scope="col">
-              <div class="slds-truncate" title="Favourite_Color__c">Favourite Color</div>
-            </th>
-            <th class="" scope="col">
-              <div class="slds-truncate" title="Active__c">Active</div>
-            </th>
-            <th class="" scope="col">
-                <div class="slds-truncate" title="Action">Action</div>
-              </th>
+            <template for:each={fieldNames} for:item="field">
+              <th key={field}>{field}</th>
+            </template>
+              <th>Action</th>
           </tr>
+
         </thead>
         <tbody>
           <template for:each={paginationList} for:item="acc">
@@ -26,12 +16,17 @@
               <td>{acc.NumberOfEmployees}</td>
               <td>{acc.Favourite_Color__c}</td>
               <td>{acc.Active__c}</td>
+              <!--<template for:each={fieldNames} for:item="field" for:index=i>
+                <td key={field.Name}>{acc.field.i}</td>
+              </template>!-->
+
               <td><lightning-button label="Edit" name={acc.Id} onclick={editHandler} class="slds-m-left_x-small"></lightning-button>
               </td>
             </tr>
           </template>
         </tbody>
-    </table><br/>
+    </table>
+    <br/>
     <div class="slds-m-around_medium">
       <p class="slds-m-vertical_medium content">
                Displaying {startingRecord} to {endingRecord} of {totalRecordCount} records.
